@@ -41,7 +41,7 @@ class PermissionsNotifier extends StateNotifier<PermissionsState> {
   }
 
   requestPhotoLibraryAccess() async {
-    final status = await Permission.photos.request();
+    final status = await Permission.storage.request();
     state = state.copyWith(photoLibrary: status);
 
     if (status == PermissionStatus.permanentlyDenied) {
