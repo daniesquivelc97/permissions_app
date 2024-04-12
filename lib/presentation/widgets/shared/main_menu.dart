@@ -10,12 +10,11 @@ class MenuItem {
 }
 
 final menuItems = <MenuItem>[
-  MenuItem('Giroscopio', Icons.downloading, '/gyroscope'),
-  MenuItem('Acelerómetro', Icons.speed, '/accelerometer'),
-  MenuItem('Magnetometro', Icons.explore_outlined, '/magnetometer'),
-  MenuItem(
-      'Giroscopio Ball', Icons.sports_baseball_outlined, '/gyroscope-ball'),
-  MenuItem('Brújula', Icons.explore, '/compass'),
+  MenuItem('Gyroscope', Icons.downloading, '/gyroscope'),
+  MenuItem('Accelerometer', Icons.speed, '/accelerometer'),
+  MenuItem('Magnetometer', Icons.explore_outlined, '/magnetometer'),
+  MenuItem('Gyroscope Ball', Icons.sports_baseball_outlined, '/gyroscope-ball'),
+  MenuItem('Compass', Icons.explore, '/compass'),
 ];
 
 class MainMenu extends StatelessWidget {

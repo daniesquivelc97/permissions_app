@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:permissions_app/presentation/providers/providers.dart';
 
-class AccelerometerScreen extends StatelessWidget {
+class AccelerometerScreen extends ConsumerWidget {
   const AccelerometerScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    final accelerometerGravity$ = ref.watch(accelerometerGravityProvider);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AccelerometerScreen'),
+        title: const Text('Accelerometer'),
       ),
-      body: const Center(
-        child: Text('Accelerometer Screen'),
-      ),
+      body: Center(
+          child: accelerometerGravity$.when(
+        data: (value) => Text(
+          value.toString(),
+          style: const TextStyle(fontSize: 30),
+        ),
+        error: (error, stackTrace) => Text('$error'),
+        loading: () => const CircularProgressIndicator(),
+      )),
     );
   }
 }
